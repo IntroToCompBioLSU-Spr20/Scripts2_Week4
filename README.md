@@ -41,7 +41,8 @@ What about when you run this?
 
 `sed -i "_backup" 's/,/ /g' chiari.summary_statistics.csv`
 
-` the -i will edit the file and save/replace the text with the sed command output`
+` ******  the -i will edit the file and save/replace the text with the sed command output
+ the backup will store the origional contents in the backup and the edits are stored in the origional`
 
 Note that this syntax will stay the same for any find and replace operation that we want to do. The only thing that will change is the text to find and replace (between the slashes).
 
