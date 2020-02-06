@@ -1,0 +1,7 @@
+#!/bin/bash
+
+curl https://raw.githubusercontent.com/IntroToCompBioLSU-Spr20/Scripts2_Week4/master/chiari.summary_statistics.csv > chiari.summary_statistics.csv     ##- downloading the file and saving 
+sed -i "_backup" 's/,/ /g' chiari.summary_statistics.csv           ##-this is to replace commas for spaces which will be needed for using the awk command
+myVar=`wc -l chiari.summary_statistics.csv`  #-- assing the number of lines to a variable
+tail -n248 chiari.summary_statistics.csv | grep " $1"$ | grep " $2 " | awk '{print $2}' > gene_names.txt   ### this will pull the lines, grab whatever Hot score and taxa number desired. then pull the gene names and store in a text file. 
+                           
