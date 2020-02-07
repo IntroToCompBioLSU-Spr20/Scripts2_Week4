@@ -2,3 +2,4 @@
 
 sed 's/,/ /g' chiari.summary_statistics.csv | grep -w $1 | grep -w $2 | awk '{print $2}'
 
+ 
