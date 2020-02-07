@@ -1,0 +1,18 @@
+#! /bin/bash
+
+#Create a variable: number of lines of a file - 1 (only data, without headers)
+varChia=`wc chia.csv | awk '{print $1}'`
+varChia=$(($varChia - 1))
+
+#With previous variable: extract data without headers, and select data with HotAlignmentScore = x($1) and taxa = y($2)
+#Store these results as a temporary file
+tail -n $varChia chia.csv | grep -w $1$ | grep -w $2 >> chia2.csv
+
+#In the temporary file, change "," to "spaces", and then extract the column with gene name ($2). Print and save the results in a new file
+echo ""$USER", this(these) is(are) the gene name(s) you want:"
+sed -i 's/,/ /g' chia2.csv
+awk '{print $2}' chia2.csv > YourResultsChia.txt
+cat YourResultsChia.txt
+
+#Remove temporary file
+rm chia2.csv
