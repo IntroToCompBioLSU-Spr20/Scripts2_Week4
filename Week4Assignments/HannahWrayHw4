@@ -1,0 +1,12 @@
+#! /bin/bash
+#$1 = HoT score
+#$2 = number of taxa
+# save data to a new file
+curl https://raw.githubusercontent.com/IntroToCompBioLSU-Spr20/Scripts2_Week4/master/chiari.summary_statistics.csv > hw3.txt
+# replace commas with spaces and creates a backup with original data
+sed -i"_backup" 's/,/ /g' hw3.txt
+# store number of lines in a variable: prints number of lines and name of file, extracts first column (number of lines)
+linecount=`wc -l hw3.txt | awk '{print $1}'`
+# take all the lines except the header (accounting for discrepancy in line count number between data set and wc command)
+# find the lines ending in argument 1 and then argument 2, print the second column (gene name) and save to new file
+tail -n $linecount hw3.txt | grep " $1$" | grep -w "$2" | awk '{print $2}' > hw3Genes.txt
