@@ -1,0 +1,18 @@
+#! /bin/bash
+#echo "I'M A SCRITP AND I WORK"
+#before running all this, I created myScript, allowed permissions (execute), change comas for spaces (sed_'s/,/ /g' TestCVS.cvs) and saved a backup with comas. I worked with the
+# file with spaces.
+# Counting lines and storing variable (number of lines_file cvs):
+#created variable to store my desired line number, used wc to know the number and awk to get just the first column (which include the line number I want)
+myVar=`wc TestCVS.cvs | awk '{print $1}'`
+#Using line number and extracting all lines but the first one:
+#tail to get all the lines but the first one;
+#pipe to indicate it that i'm working on the same file (TestCVS.cvs);
+#grep to retrieve the lines w/ the specific information I want (HoT of 1 and Taxa 14);
+#awk to print/show the 2nd column. At the end, the script will show me characteristics (HoT of 1 and Taxa 14) from the column I'm asking to (gene name)
+# below is how it looks the command line for all these steps
+#tail -n248 TestCVS.cvs | grep " 1"$ | grep " 14"| awk '{print $2}'
+#Generalizing script:
+#everything the same as above, but changing the 1 and 14 for $1 and $2, respectively
+#given that I'm gonna ask for these two informations, I just type $1 and $2
+tail -n248 TestCVS.cvs | grep " $1"$ | grep " $2 "| awk '{print $2}'
