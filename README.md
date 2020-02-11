@@ -78,12 +78,14 @@ NOTE: bash can only handle _integers_ and not floating-point numbers (i.e., deci
 
 Try this. What happens?
 
+```
 myVar=3
 echo $myVar
 ((myVar++))
 echo $myVar
 ((myVar++))
 echo $myVar
+```
 
 What does the `++` operator do?
 
