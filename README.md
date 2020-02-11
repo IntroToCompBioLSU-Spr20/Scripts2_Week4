@@ -227,5 +227,7 @@ done
 ```
 Practice Exercise
 
-Write a script that's similar to the one you wrote above to add even numbers. However, this time your script should accept any number of integers as command-line arguments and only sum the even ones. At the end, your script should print out sum.
+Write a script that's similar to the one you wrote above to add even numbers. However, 
+this time your script should accept any number of integers as command-line arguments 
+and only sum the even ones. At the end, your script should print out sum.
 ```
