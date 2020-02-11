@@ -153,6 +153,25 @@ Practice Exercise - If...Else
 (3) If either of these conditions are not met, have your script print an error message to the screen.
 ```
 
+```
+Practice Exercise - Nested If...Else
+
+If...else statements can be nested inside one another. If these statements were in a script, and 
+you passed 8 as the command-line argument, what will happen? What if you pass a 4?
+
+if [ $1 -le 7 ]
+then
+    if [ $1 -ge 3 ]
+    then
+        echo "Good."
+    else
+        echo "Not good."
+    fi
+else
+    echo "Not good."
+fi
+```
+
 ## For Loops
 
 One of the most common reasons to write a script is to automate something that is, at a minimum, very tedious to do manually and, at worst, completely impossible otherwise. A versatile way to incorporate repitition into a script is to use a `for` loop. `for` loops in bash have the following structure:
