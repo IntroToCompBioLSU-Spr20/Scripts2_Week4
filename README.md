@@ -78,12 +78,14 @@ NOTE: bash can only handle _integers_ and not floating-point numbers (i.e., deci
 
 Try this. What happens?
 
+```
 myVar=3
 echo $myVar
 ((myVar++))
 echo $myVar
 ((myVar++))
 echo $myVar
+```
 
 What does the `++` operator do?
 
@@ -151,6 +153,25 @@ Practice Exercise - If...Else
 (3) If either of these conditions are not met, have your script print an error message to the screen.
 ```
 
+```
+Practice Exercise - Nested If...Else
+
+If...else statements can be nested inside one another. If these statements were in a script, and 
+you passed 8 as the command-line argument, what will happen? What if you pass a 4?
+
+if [ $1 -le 7 ]
+then
+    if [ $1 -ge 3 ]
+    then
+        echo "Good."
+    else
+        echo "Not good."
+    fi
+else
+    echo "Not good."
+fi
+```
+
 ## For Loops
 
 One of the most common reasons to write a script is to automate something that is, at a minimum, very tedious to do manually and, at worst, completely impossible otherwise. A versatile way to incorporate repitition into a script is to use a `for` loop. `for` loops in bash have the following structure:
@@ -163,6 +184,19 @@ done
 ```
 
 Let's break this down. First, we've defined a new variabled named `num`. This variable can be named anything you want. In this case, `num` will iteratively take the value of anything included in the list that follows `in`. During each iteration, the code in between `do` and `done` will be executed. In this case, we will simply print out each of the values our variable takes, one after the other. Later, we will use `for` loops that have a whole series of commands inside the loop.
+
+```
+Practice Exercise
+
+Write a for loop inside a script that follows these steps:
+
+(1) Create a variable called sum and set it to 0.
+(2) Loop over the integers 1 through 10.
+(3) If the integer is even (2, 4, etc.), add it to sum.
+(4) Once the loop is complete, print out sum.
+
+HINT: Remember the modulo (%) operator!!
+```
 
 Double parentheses notation can also be used to write a `for` loop in a way that doesn't require you to write out every unique element in the list:
 
@@ -188,4 +222,12 @@ for num in $@
 do
   echo $num
 done
+```
+
+```
+Practice Exercise
+
+Write a script that's similar to the one you wrote above to add even numbers. However, 
+this time your script should accept any number of integers as command-line arguments 
+and only sum the even ones. At the end, your script should print out sum.
 ```
