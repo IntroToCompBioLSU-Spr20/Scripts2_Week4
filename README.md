@@ -172,6 +172,41 @@ else
 fi
 ```
 
+### If...Elif...Else
+
+Sometimes you may want to evaluate a series of conditions consecutively. In this case, you can use a variation on an `if...else` statement that has an extra `else if` in the middle. In these cases, the `else if` is abbreviated as `elif` and the structure could look something like this
+
+```
+if (( $1 < 2 ))
+then
+    echo "less than two"
+elif (( $1 < 5 ))
+then
+    echo "between two and four"
+else
+    echo "greater than four"
+fi
+```
+
+How is this code different than what we saw above? If we put this in a script and passed a command-line argument of `1`, what would we get? What if we passed a `4`?
+
+You can also string together as many `elif` tests in a row as you want.
+
+```
+if (( $1 < 2 ))
+then
+    echo "less than two"
+elif (( $1 < 5 ))
+then
+    echo "between two and four"
+elif (( $1 < 8 ))
+then
+    echo "between five and seven"
+else
+    echo "greater than seven"
+fi
+```
+
 ## For Loops
 
 One of the most common reasons to write a script is to automate something that is, at a minimum, very tedious to do manually and, at worst, completely impossible otherwise. A versatile way to incorporate repitition into a script is to use a `for` loop. `for` loops in bash have the following structure:
