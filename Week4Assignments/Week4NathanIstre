@@ -1,0 +1,10 @@
+#! /bin/bash
+
+# $1 = HoT
+# $2 = Taxa
+
+# The text file is has already changed the ',' into ' ' by using [sed -i"_backup" 's/,/ /g' assignment3text.txt]
+# Search through the text file for the HoT number and then for the Taxa number.
+# Prints the name column in the text file.
+
+grep -w $1 assignment3text.txt | grep -w $2 | awk '{print $2}'
