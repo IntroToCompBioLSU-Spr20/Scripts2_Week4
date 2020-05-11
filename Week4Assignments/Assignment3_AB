@@ -1,0 +1,16 @@
+#! /bin/bash
+
+curl https://raw.githubusercontent.com/IntroToCompBioLSU-Spr20/Scripts2_Week4/master/chiari.summary_statistics.csv > Assignment3data.txt #this grabs the document and names
+echo "" >> Assignment3data.txt #this adds a return to the end of the file so that you get the right number of lines when use wc -l
+
+lines=`wc -l < Assignment3data.txt` #put in backticks as allows to write output as if is a variable, the wc -l allows you to see how many lines are in word count command
+
+lines=$((lines - 1)) #rename the variable "lines" as subtracting one from the number of lines
+
+tail -n $lines Assignment3data.txt | grep ,$1$ | grep ,$2, | awk -F "," '{print $2}' > GeneNames.txt
+#this grabs the last 248 lines, then searches for argument ",argument1" at the end of the line, then it searches for ",argument 2,"
+#the last command extracts the second column using a delimitation of a comma and saves all the output as a text file name GeneNames.txt
+
+echo "" #creates a tab before the next line is printed
+
+echo "Your file has been created." #lets you know the script was correctly executed
